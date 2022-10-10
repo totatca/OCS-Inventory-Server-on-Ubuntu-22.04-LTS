@@ -17,7 +17,6 @@
 	sudo perl -MCPAN -e 'install Plack::Handler'
 
 	###Replace Database Name,User, Password = Your-database
-
 	CREATE DATABASE ocsdb;
 
 	CREATE USER ocsuser@localhost IDENTIFIED BY 'ocsPWD';
@@ -25,9 +24,12 @@
 	GRANT ALL ON ocsdb.* TO ocsuser@localhost;
 
 	FLUSH PRIVILEGES;
-
+	
+	
+	### Link download OCS Inventory Server
 	https://ocsinventory-ng.org/?page_id=1548&lang=en
-
+	
+	### Download
 	sudo wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.10.0/OCSNG_UNIX_SERVER-2.10.0.tar.gz
 
 	sudo ln -s /etc/apache2/conf-available/ocsinventory-reports.conf /etc/apache2/conf-enabled/ocsinventory-reports.conf
