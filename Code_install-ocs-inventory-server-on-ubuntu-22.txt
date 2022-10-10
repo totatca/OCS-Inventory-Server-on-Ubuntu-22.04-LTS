@@ -1,0 +1,38 @@
+
+
+	sudo apt update && sudo apt upgrade -y
+
+	sudo apt install git curl wget make cmake gcc make -y
+
+	sudo apt -y install php-mbstring php-xml php-mysql php-zip php-pclzip php-gd php-soap php-curl php-json libapache2-mod-perl2 libapache-dbi-perl libapache-db-perl libapache2-mod-php libarchive-zip-perl mariadb-client
+
+	sudo apt -y install perl libxml-simple-perl libcompress-zlib-perl libdbi-perl libdbd-mysql-perl libnet-ip-perl libsoap-lite-perl libio-compress-perl libapache-dbi-perl  libapache2-mod-perl2 libapache2-mod-perl2-dev
+
+	sudo perl -MCPAN -e 'install Apache2::SOAP'
+	sudo perl -MCPAN -e 'install XML::Entities'
+	sudo perl -MCPAN -e 'install Net::IP'
+	sudo perl -MCPAN -e 'install Apache::DBI'
+	sudo perl -MCPAN -e 'install Mojolicious'
+	sudo perl -MCPAN -e 'install Switch'
+	sudo perl -MCPAN -e 'install Plack::Handler'
+
+	###Replace Database Name,User, Password = Your-database
+
+	CREATE DATABASE ocsdb;
+
+	CREATE USER ocsuser@localhost IDENTIFIED BY 'ocsPWD';
+
+	GRANT ALL ON ocsdb.* TO ocsuser@localhost;
+
+	FLUSH PRIVILEGES;
+
+	https://ocsinventory-ng.org/?page_id=1548&lang=en
+
+	sudo wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.10.0/OCSNG_UNIX_SERVER-2.10.0.tar.gz
+
+	sudo ln -s /etc/apache2/conf-available/ocsinventory-reports.conf /etc/apache2/conf-enabled/ocsinventory-reports.conf
+
+	sudo ln -s /etc/apache2/conf-available/z-ocsinventory-server.conf /etc/apache2/conf-enabled/z-ocsinventory-server.conf
+
+	sudo ln -s /etc/apache2/conf-available/zz-ocsinventory-restapi.conf /etc/apache2/conf-enabled/zz-ocsinventory-restapi.conf
+
